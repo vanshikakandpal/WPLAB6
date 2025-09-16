@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@700&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/88f05daeb4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<header>
+    <div class="logo">MY PORTFOLIO</div>
+    <i class="fa-brands fa-square-linkedin"></i>
+    <nav>
+    <a href="#home">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Hello, I am <span>Designer</span></h1>
+  <div class="typing">Creating engaging web experiences</div>
+  <button class="btn">See My Work</button>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/400/200?1"><p>Project 1</p></div>
+    <div class="card"><img src="https://picsum.photos/400/200?2"><p>Project 2</p></div>
+    <div class="card"><img src="https://picsum.photos/400/200?3"><p>Project 3</p></div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <h2>Testimonials</h2>
+  <p class="testimonial">“Amazing work!”</p>
+  <p class="testimonial">“Loved the animations.”</p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <form id="form">
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button type="submit" id="submitBtn">Send</button>
+  </form>
+</section>
+
+<footer>
+    <p>Follow me:</p>
+  <a href="#">🐦</a><a href="#">🐙</a><a href="#">🔗</a>
+</footer>
+<script>
+// reveal testimonials
+const t=document.querySelectorAll('.testimonial');
+window.addEventListener('scroll',()=>{t.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight-50)el.classList.add('show')})});
+// contact validation shake
+document.getElementById('form').addEventListener('submit',e=>{
+ e.preventDefault();const btn=document.getElementById('submitBtn');
+ if(!e.target[0].value||!e.target[1].value||!e.target[2].value){btn.classList.add('shake');setTimeout(()=>btn.classList.remove('shake'),400)}
+ else{btn.textContent="Sent ✓"}
+});
+</script>
+
+</body>
+</html>
